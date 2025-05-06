@@ -1,0 +1,26 @@
+{
+    "name": "talos-linux-poc",
+    "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu-24.04",
+    "containerEnv": {
+        "TZ": "Asia/Tokyo"
+    },
+    // TODO: Use $HOME instead of /home/vscode
+    "remoteEnv": {
+        "PATH": "/home/vscode/.local/share/aquaproj-aqua/bin:${containerEnv:PATH}"
+    },
+    "postCreateCommand": "aqua install",
+    "features": {
+        "ghcr.io/aquaproj/devcontainer-features/aqua-installer:0.1.3": {
+            "aqua_version": "v2.51.1"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {},
+            "extensions": [
+                // Github actions
+                "github.vscode-github-actions"
+            ]
+        }
+    }
+}
